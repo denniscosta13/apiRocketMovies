@@ -1,0 +1,20 @@
+{
+  "name": "movie_notes",
+  "version": "1.0.0",
+  "description": "API de notas de filmes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
+    "migrate": "knex migrate:latest"
+  },
+  "author": "Dennis Costa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
