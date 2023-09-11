@@ -5,7 +5,7 @@ const usersRoutes = require("./users.routes")
 
 /** routes use */
 
-routes.use("/user",usersRoutes)
+routes.use("/users",usersRoutes)
 
 
 
