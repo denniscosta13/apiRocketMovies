@@ -27,9 +27,29 @@ class MoviesController {
     res.json()
   }
 
-  // async update(req, res) {
+  async show(req, res) {
+    const { id } = req.params
+
+    const movies = await knex("movies").where({ id }).first()
+    const tags = await knex("tags").where({ movie_id: id }).orderBy("name")
+
+    return res.json({
+      ...movies,
+      tags
+    })
+  }
+
+  async delete(req, res) {
+    const { id } = req.params
+
+    await knex("movies").where({ id }).delete()
+
+    return res.json()
+  }
+
+  async index(req, res) {
     
-  // }
+  }
 }
 
 module.exports = MoviesController

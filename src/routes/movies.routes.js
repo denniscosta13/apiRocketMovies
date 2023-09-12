@@ -5,7 +5,10 @@ const MoviesController = require("../controllers/MoviesController")
 const moviesController = new MoviesController()
 
 /** http verbs */
-moviesRoutes.post("/:user_id",moviesController.create)
+
+moviesRoutes.post("/:user_id", moviesController.create)
+moviesRoutes.get("/:id", moviesController.show)
+moviesRoutes.delete("/:id", moviesController.delete)
 
 
 
