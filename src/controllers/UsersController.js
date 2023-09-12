@@ -20,7 +20,7 @@ class UsersController {
       password: hashedPassword
     })
 
-    return res.json()
+    return res.status(201).json()
   }
 
   async update(req, res) {
