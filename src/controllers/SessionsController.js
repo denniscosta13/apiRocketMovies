@@ -12,14 +12,10 @@ class SessionsController {
         const { email, password } = request.body
 
         const user = await knex("users").where({ email }).first();
-        if(!user) {
-            throw new AppError("E-mail e/ou senha incorreta", 401)
-        }
+        checkIfUserExists(user)
         
         const passwordMatched = await compare(password, user.password);
-        if(passwordMatched) {
-            throw new AppError("E-mail e/ou senha incorreta", 401)
-        }
+        checkIfPasswordMatched(passwordMatched)
 
         const token = createToken(user)
 
@@ -27,6 +23,18 @@ class SessionsController {
 
     }
 
+}
+
+function checkIfUserExists(user) {
+    if(!user) {
+        throw new AppError("E-mail e/ou senha incorreta", 401)
+    }
+}
+
+function checkIfPasswordMatched(passwordMatchResult) {
+    if(!passwordMatchResult) {
+        throw new AppError("E-mail e/ou senha incorreta", 401)
+    }
 }
 
 function createToken(payload) {
@@ -40,3 +48,5 @@ function createToken(payload) {
 
     return token
 }
+
+module.exports = SessionsController
