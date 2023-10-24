@@ -1,16 +1,18 @@
 const { Router } = require("express")
 const routes = Router()
 
-const usersRoutes = require("./users.routes")
-const moviesRoutes = require("./movies.routes")
-const tagsRoutes = require("./tags.routes")
+const usersRouter = require("./users.routes")
+const moviesRouter = require("./movies.routes")
+const tagsRouter = require("./tags.routes")
+const sessionsRouter = require("./tags.routes")
 
 
 /** routes use */
 
-routes.use("/users",usersRoutes)
-routes.use("/movies",moviesRoutes)
-routes.use("/tags",tagsRoutes)
+routes.use("/users",usersRouter)
+routes.use("/movies",moviesRouter)
+routes.use("/tags",tagsRouter)
+routes.use("/sessions", sessionsRouter)
 
 
 
