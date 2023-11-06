@@ -15,7 +15,7 @@ const upload = multer(uploadConfig.MULTER)
 
 /** http verbs */
 usersRoutes.post("/",usersController.create)
-usersRoutes.post("/:id", ensureAuthenticated, usersController.update)
+usersRoutes.put("/", ensureAuthenticated, usersController.update)
 usersRoutes.patch("/avatar", ensureAuthenticated, upload.single("avatar"), userAvatarController.update)
 
 

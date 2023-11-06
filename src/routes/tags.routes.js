@@ -9,7 +9,7 @@ const tagsController = new TagsController()
 
 /** http verbs */
 
-tagsRoutes.get("/:user_id", ensureAuthenticated, tagsController.index)
+tagsRoutes.get("/", ensureAuthenticated, tagsController.index)
 
 
 

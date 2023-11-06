@@ -25,9 +25,9 @@ class UsersController {
 
   async update(req, res) {
     const { name, email, old_password, password } = req.body
-    const { id } = req.params
+    const user_id = req.user.id
     
-    const [user] = await knex("users").where({ id })
+    const [user] = await knex("users").where({ id: user_id })
     let checkEmailExists
 
     if(!user) {
@@ -65,7 +65,7 @@ class UsersController {
     }
 
     await knex("users")
-    .where({ id })
+    .where({ id: user_id })
     .update({
       name: user.name,
       email: user.email,

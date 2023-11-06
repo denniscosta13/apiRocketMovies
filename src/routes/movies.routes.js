@@ -11,7 +11,7 @@ const moviesController = new MoviesController()
 moviesRoutes.use(ensureAuthenticated)
 
 moviesRoutes.get("/", moviesController.index)
-moviesRoutes.post("/:user_id", moviesController.create)
+moviesRoutes.post("/", moviesController.create)
 moviesRoutes.get("/:id", moviesController.show)
 moviesRoutes.delete("/:id", moviesController.delete)
 
