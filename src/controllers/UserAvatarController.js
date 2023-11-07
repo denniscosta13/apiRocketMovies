@@ -28,7 +28,7 @@ class UserAvatarController {
             .update(user)
             .where({id: user_id})
 
-        return res.json()
+        return res.json(user)
     }
 }
 

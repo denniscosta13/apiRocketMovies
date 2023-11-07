@@ -52,7 +52,7 @@ class UsersController {
       throw new AppError("Você precisa informar a nova senha")
 
     } else if(!password && !old_password) {
-      return res.json();
+      res.json();
 
     } else {
       const checkOldPassword = await bcrypt.compare(old_password, user.password)
